@@ -9,7 +9,7 @@ import { getMainDefinition } from 'apollo-utilities';
 
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-export const HASURA_GRAPHQL_ENGINE_HOSTNAME = 'hasura-yb-demo.hasura.app';
+export const HASURA_GRAPHQL_ENGINE_HOSTNAME = 'hasura-poll.hasura.app';
 
 const scheme = (proto) => {
   return window.location.protocol === 'https:' ? `${proto}s` : proto;
@@ -19,7 +19,7 @@ const scheme = (proto) => {
 
 const wssurl = `${scheme('wss')}://${HASURA_GRAPHQL_ENGINE_HOSTNAME}/v1/graphql`;
 const httpsurl = `${scheme('https')}://${HASURA_GRAPHQL_ENGINE_HOSTNAME}/v1/graphql`;
-const hasura_secret = '';
+const hasura_secret = 'qmHNEweNpAUOdyQ8D4oMSrqP2mLoh3EdRdVk6hwI00etXTlF8BTYCtKE4I2S8pLp';
 
 // ** http connection for localhost **
 // const wsurl = `${scheme('ws')}://${HASURA_GRAPHQL_ENGINE_HOSTNAME}/v1/graphql`;

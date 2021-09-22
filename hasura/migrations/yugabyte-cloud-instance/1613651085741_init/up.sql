@@ -1,5 +1,3 @@
-CREATE EXTENSION IF NOT EXISTS pgcrypto;
-
 CREATE FUNCTION public.update_last_seen_timestamp_func() RETURNS trigger
     LANGUAGE plpgsql
     AS $$
@@ -9,7 +7,7 @@ CREATE FUNCTION public.update_last_seen_timestamp_func() RETURNS trigger
       END;
   $$;
 CREATE TABLE public."user" (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     online_ping boolean,
     last_seen_at timestamp with time zone,
@@ -20,20 +18,20 @@ CREATE VIEW public.online_users AS
    FROM public."user"
   WHERE ("user".last_seen_at > (now() - '00:00:15'::interval));
 CREATE TABLE public.option (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid NOT NULL,
     poll_id uuid NOT NULL,
     text text NOT NULL,
     PRIMARY KEY (id)
 );
 CREATE TABLE public.poll (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     created_by uuid,
     question text NOT NULL,
     PRIMARY KEY (id)
 );
 CREATE TABLE public.vote (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid NOT NULL,
     created_by_user_id uuid NOT NULL,
     option_id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,

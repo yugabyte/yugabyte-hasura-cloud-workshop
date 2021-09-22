@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import { Button, Form } from 'react-bootstrap';
 import { Result } from './Result';
 import { QUERY_GET_POLL, MUTATION_VOTE } from './GraphQL';
+import { v4 as uuidv4 } from 'uuid';
 
 class PollQuestion extends Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class PollQuestion extends Component {
     });
     vote({
       variables: {
+        id: uuidv4(),
         optionId: this.state.optionId,
         userId: this.props.userId
       }

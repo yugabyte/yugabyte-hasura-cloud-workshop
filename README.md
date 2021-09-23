@@ -10,7 +10,7 @@ This repo provides instructions for Hands-on workshop for building GraphQL Appli
 - Basic experience with NodeJS programming
 - IDE/Editor of choice - Sublime or IntelliJ or Visual Studio Code
 
-## Techinal Requirements
+## Technical Requirements
 
 - Access to [Yugabyte Cloud Instance](https://www.yugabyte.com/cloud/)
 - Access to [Hasura Cloud Instance](https://cloud.hasura.io/signup?pg=products&plcmt=body&cta=get-started-for-free&tech=default)
@@ -25,6 +25,8 @@ poll and the results are updated in the on-screen bar chart, in real-time.
 The application makes use of Hasura GraphQL Engine's real-time capabilities
 using `subscription`. There is no backend code involved. The application will use 
 Hasura Cloud + Yugabyte Cloud for running the GraphQL Queries.
+
+![Realtime Poll application](./images/realtime-poll-image.png)
 
 ## Agenda
 

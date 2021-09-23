@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import logo from './img/logo-white.svg';
+import yblogo from './img/yugabyte-cloud-logo.png';
+import ybLogoLight from './img/yugabyte-cloud-logo-light.png'
 import './App.css';
 import { ApolloProvider } from 'react-apollo';
 import client from './apollo';
@@ -30,6 +32,7 @@ class App extends Component {
           <header className="App-header displayFlex">
             <div className="container displayFlex">
               <img src={logo} className="App-logo" alt="logo" />
+              <img src={ybLogoLight} className="App-logo" alt="logo" />
               <h1 className="App-title">Realtime Poll</h1>
             </div>
           </header>
@@ -47,7 +50,7 @@ class App extends Component {
               </a>
               &nbsp; | &nbsp;
               <a href="https://www.yugabyte.com" target="_blank" rel="noopener noreferrer">
-                <img className="yugabyte-logo" alt="yugabyte logo" src="https://cloud.yugabyte.com/static/media/yugabyte-cloud-logo-horizontal_full_dark.bc9d0137.png" />
+                <img className="yugabyte-logo" alt="yugabyte logo" src={yblogo} />
               </a>
               &nbsp; | &nbsp;
               <a href="https://hasura-yb-demo.hasura.app/console" target="_blank">

@@ -4,47 +4,49 @@
 
 
 - Create a [Yugabyte Cloud Instance](https://www.yugabyte.com/cloud/)
-- Createa a [Hasura Cloud Instance](https://cloud.hasura.io/signup?pg=products&plcmt=body&cta=get-started-for-free&tech=default)
+- Create a [Hasura Cloud Instance](https://cloud.hasura.io/signup?pg=products&plcmt=body&cta=get-started-for-free&tech=default)
+- Add `Hasura Cloud IP` in whitelist ip-address of Yuagbyte Cloud instance for enabling access to respective ip-addresses.
 
 ## Step 2: Configure Hasura Cloud instance to use YugabyteDB Cloud Instance
 
-1) Deploy GraphQL Engine on Hasura Cloud and connect to Yugabyte Cloud Instance using `Connect Exisitng Database`:
+  a) Deploy GraphQL Engine on Hasura Cloud and connect to Yugabyte Cloud Instance using `Connect Exisitng Database`:
   
-   - Retrive the hostname of Yugabyte cloud instance
-   - Retrive the credentials of Yugabyte cloud instance
-   - Build the connection string for yugabytedb 
+     - create database connection with the display name `yugabyte-cloud-instance`
+     - Retrive the hostname of Yugabyte cloud instance
+     - Retrive the credentials of Yugabyte cloud instance
+     - Build the connection string for yugabytedb 
 
-   Connection String Format:
+     Connection String Format:
 
-   ```
-   postgresql://admin:password@hostname:5433/yugabyte?ssl=true&sslmode=require
-   
-   ```
+     ```
+     postgresql://admin:password@hostname:5433/yugabyte?ssl=true&sslmode=require
+     
+     ```
 
-   Connection String Example: 
-   ```
-   postgresql://admin:xxxxxxx%21%23YJCRp9%403@c0aef75b-6889-4c86-8aa7-xxxxxxxxx.aws.ybdb.io:5433/yugabyte?ssl=true&sslmode=require
-   
-   ```
+     Connection String Example: 
+     ```
+     postgresql://admin:xxxxxxx%21%23YJCRp9%403@c0aef75b-6889-4c86-8aa7-xxxxxxxxx.aws.ybdb.io:5433/yugabyte?ssl=true&sslmode=require
+     
+     ```
 
-   Note: Special charecters in the username/password needs to be encoded
+     Note: Special charecters in the username/password needs to be encoded
 
-2) Get the Hasura app URL (say `hasura-yb-demo.hasura.app`)
+  b) Get the Hasura app URL (say `hasura-yb-demo.hasura.app`)
 
 ## Step 3: Clone the workshop repo
 
   ```bash
-  git clone https://github.com/yugabyte/yugabyte-graphql-apps
-  cd realtime-poll
+  git clone https://github.com/yugabyte/yugabyte-hasura-cloud-workshop
+  cd yugabyte-hasura-cloud-workshop
   ```
 
 ## Step 4: Run the migrations for setting the database schema
 
 - [Install Hasura CLI](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html)
 
-- Goto `hasura/` and edit `config.yaml`:
+- Goto `hasura/` directory in the project and edit `config.yaml`:
 
-  Update the `endpoint` and `admin_secret` values of your respective Hasura cloud instance.
+  Update the `endpoint` and `admin_secret` values from the respective Hasura cloud instance.
 
   ```yaml
   endpoint: https://hasura-yb-demo.hasura.app
@@ -59,7 +61,9 @@
 
 ## Step 5: Track the all the tables and relationships
 
-   a. Additionaly we need to add a Array relationship for `poll_results` 
+   a. Track all the tables and relationship from `data` tab of Hasura console
+
+   b. Additionaly we need to manually add a Array relationship for `poll_results` 
 
    Relationalship name `option` on `poll_results` table referencing `poll_id` to `option.poll_id`
 

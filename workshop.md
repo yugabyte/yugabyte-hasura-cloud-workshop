@@ -18,7 +18,7 @@
 
   Connection String Format:
 
-    ```yaml
+    ```
     postgresql://admin:password@hostname:5433/yugabyte?ssl=true&sslmode=require
     ```
 

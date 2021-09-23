@@ -9,21 +9,21 @@
 
 ## Step 2: Configure Hasura Cloud instance to use YugabyteDB Cloud Instance
 
-  a) Deploy GraphQL Engine on Hasura Cloud and connect to Yugabyte Cloud Instance using `Connect Exisitng Database`:
-  
-     - create database connection with the display name `yugabyte-cloud-instance`
-     - Retrive the hostname of Yugabyte cloud instance
-     - Retrive the credentials of Yugabyte cloud instance
-     - Build the connection string for yugabytedb 
+  a) Deploy GraphQL Engine on Hasura Cloud and connect to Yugabyte Cloud Instance using `Connect Exisiting Database`
 
-     Connection String Format:
+   - create database connection with the display name `yugabyte-cloud-instance`
+   - Retrive the hostname of Yugabyte cloud instance
+   - Retrive the credentials of Yugabyte cloud instance
+   - Build the connection string for yugabytedb 
 
-     ```
-     postgresql://admin:password@hostname:5433/yugabyte?ssl=true&sslmode=require
-     
-     ```
+  Connection String Format:
 
-     Connection String Example: 
+    ```yaml
+    postgresql://admin:password@hostname:5433/yugabyte?ssl=true&sslmode=require
+    ```
+
+  Connection String Example:
+
      ```
      postgresql://admin:xxxxxxx%21%23YJCRp9%403@c0aef75b-6889-4c86-8aa7-xxxxxxxxx.aws.ybdb.io:5433/yugabyte?ssl=true&sslmode=require
      

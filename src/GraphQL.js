@@ -14,8 +14,9 @@ query {
 }`;
 
 const MUTATION_VOTE = `
-mutation vote($optionId: uuid!, $userId: uuid!) {
+mutation vote($id: uuid!, $optionId: uuid!, $userId: uuid!) {
   insert_vote(objects:[{
+    id: $id,
     option_id: $optionId,
     created_by_user_id: $userId
   }]) {
